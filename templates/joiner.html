@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/joiner.css')}}">
+{% endblock %}
+{% block body %}
+<div class="joinnum">
+    <p class="logo">参加予定人数</p>
+    <div class="num">
+        <p>{{ ca }}</p>
+    </div>
+</div>
+
+<form action="/grouping" method = "POST">
+    <input type="number" min="1" name="group_num" value="{{ count_m }}">
+    <input type="submit" value="何人組にするん？">
+</form>
+<div class="members">
+    <div class="grades g-1">
+        <div class ="box_title t-1">1年生</div>
+        <div class ="box_srcollbar">
+        {% for member in members1 %}   
+            <div class="person_name">
+                <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+            </div>  
+        {% endfor %}
+        {% if c1 == 0 %}
+        <h1>おらんよ</h1>
+        {% endif %}
+        </div>
+    </div>
+
+
+
+    <div class="grades g-2">
+        <div class ="box_title t-2">2年生</div>
+        <div class ="box_srcollbar">
+        {% for member in members2 %}   
+            <div class="person_name">
+                <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+            </div>  
+        {% endfor %}
+        {% if c2 == 0 %}
+        <h1>おらんよ</h1>
+        {% endif %}
+    </div>
+    </div>
+
+
+
+    <div class="grades g-3 ">
+        <div class ="box_title t-3">3年生</div>
+        <div class ="box_srcollbar">
+        {% for member in members3 %}   
+            <div class="person_name">
+                <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+            </div>  
+        {% endfor %}
+        {% if c3 == 0 %}
+        <h1>おらんよ</h1>
+        {% endif %}
+        </div>
+    </div>
+
+
+
+    <div class="grades g-4 t-4">
+        <div class ="box_title">4年生</div>
+        <div class ="box_srcollbar">
+        {% for member in members4 %}   
+            <div class="person_name">
+                <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+            </div>  
+        {% endfor %}
+        {% if c4 ==0 %}
+        <h1>おらんよ</h1>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

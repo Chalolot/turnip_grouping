@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/complete.css')}}">
+{% endblock %}
+
+{% block body %}
+<h1>決まったらスクショしろよ〜</h1>
+
+
+<form action="/lastjudge" method="POST">
+    <input type="submit" name ="way" class="btn btn-primary" value="やっぱ組み直す">
+    <input type="submit" name="way" class="btn btn-success" value="確定する">
+</form>
+
+
+<div class="allg">
+    {% for i in range(group_num) %}
+    <div class="grades">
+        <div class="box_title">
+            <p class="gr">グループ {{i+1}}</p>
+        </div>
+        <div class="box_srcollbar n-g">
+            {% for member in l_jmembers[i] %}
+                        <p >{{member}}</p>   
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

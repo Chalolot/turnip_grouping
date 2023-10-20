@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/add.css')}}">
+{% endblock %}
+{% block body %}
+<div class ="form">
+    <form action="/create" method="POST">
+        <p>
+            <label for="name">名前</label>
+            <input type="text" name = "name" >
+            <label for="read">なまえ</label>
+            <input type="text" name ="read" pattern="[\u3041-\u3096]*" >
+            <br><br>
+            <label for="line">LINEの名前</label>
+            <input type="text" name ="line" required>
+        </p>
+        <p>
+            <label for="grade">学年</label>        
+            <input type="number" name = "grade" max="4" min="1" required>
+            <br>
+        </p>
+        <p>
+            <label for="sex">性別 </label>
+            <input type="radio" name = "sex" value = "M" required>
+            <label for="sex">M(男)</label>
+            <input type="radio" name = "sex" value = "F" required>
+            <label for="sex">F(女)</label>
+        </p>
+        <input type="submit" value ="Create">
+    </form>
+</div>
+
+<a href="/admin" role="button">メンバー管理に戻る</a>
+
+{% endblock %}

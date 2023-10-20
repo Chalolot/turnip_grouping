@@ -1,0 +1,34 @@
+.head{
+    padding: 30px;
+}
+body{
+    padding: 0px 10px;
+}
+.g-1{
+    float:left;
+   
+}
+.g-2{
+    float:left;
+  
+}
+.g-3{
+    float:left;
+    
+}
+.g-4{
+    float:left;
+
+}
+.t-1{
+    background-color: blanchedalmond;
+}
+.t-2{
+    background-color: rgb(224, 236, 164);
+}
+.t-3{
+    background-color: rgb(163, 234, 200);
+}
+.t-4{
+    background-color: azure;
+}

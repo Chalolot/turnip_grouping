@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+{% endblock %}
+
+{% block body %}
+<h1>{{ greeding }}</h1>
+<div class="d-grid gap-2 choices">
+    <form action="/reset" method ="POST">
+        <input type="submit" class="btn btn-outline-danger choise" value="リセット">
+    </form>
+</div>
+<div class="lookfor">
+    <div class="search">
+        <form action="/search" method="POST">
+            <label for="line_name">LINEの名前を検索</label>
+            <input type="text" name="line_name">
+            <button type="submit" class="btn btn-success">検索</button>
+        </form>
+    </div>
+<form action="/join" method="POST">
+    {% if line_member != None %}
+    <div class="result">
+        <div class="re-result">
+            {% for member in line_member %}
+            <div class="found-people">
+                <div class="person_check">
+                    <input type="checkbox" id ="参加" name="joining" value="{{ member.id }}" 
+                    {% if member.belong == 1 %}
+                        checked
+                    {% endif %}>
+                </div>
+                <div class="fperson_name">
+                    <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+                </div>  
+            </div>
+            {% endfor %}
+        </div>
+    </div>  
+    {% endif %}
+</div>
+<div class="members">
+    <div class="grades g-1">
+        <div class ="box_title t-1">1年生</div>
+        <div class ="box_srcollbar">
+        {% for member in members1 %}   
+        <div class="person">
+            <div class="person_check">
+                <input type="checkbox" id ="参加" name="joining" value="{{ member.id }}" 
+                {% if member.belong == 1 %}
+                    checked
+                {% endif %}>
+            </div>
+            <div class="person_name">
+                <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+            </div>  
+        </div>
+        {% endfor %}
+        {% if c1 == 0 %}
+        <h1>おらんよ</h1>
+        {% endif %}
+        </div>
+    </div>
+
+
+
+    <div class="grades g-2">
+        <div class ="box_title t-2">2年生</div>
+        <div class ="box_srcollbar">
+        {% for member in members2 %}   
+        <div class="person">
+            <div class="person_check">
+                <input type="checkbox" id ="参加" name="joining" value="{{ member.id }}" 
+                {% if member.belong == 1 %}
+                    checked
+                {% endif %}>
+            </div>
+            <div class="person_name">
+                <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+            </div>  
+        </div>
+        {% endfor %}
+        {% if c2 == 0 %}
+        <h1>おらんよ</h1>
+        {% endif %}
+    </div>
+    </div>
+
+
+
+    <div class="grades g-3 ">
+        <div class ="box_title t-3">3年生</div>
+        <div class ="box_srcollbar">
+        {% for member in members3 %}   
+        <div class="person">
+            <div class="person_check">
+                <input type="checkbox" id ="参加" name="joining" value="{{ member.id }}" 
+                {% if member.belong == 1 %}
+                    checked
+                {% endif %}>
+            </div>
+            <div class="person_name">
+                <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+            </div>  
+        </div>
+        {% endfor %}
+        {% if c3 == 0 %}
+        <h1>おらんよ</h1>
+        {% endif %}
+        </div>
+    </div>
+
+
+
+    <div class="grades g-4 t-4">
+        <div class ="box_title">4年生</div>
+        <div class ="box_srcollbar">
+        {% for member in members4 %}   
+        <div class="person">
+            <div class="person_check">
+                <input type="checkbox" id ="参加" name="joining" value="{{ member.id }}" 
+                {% if member.belong == 1 %}
+                    checked
+                {% endif %}>
+            </div>
+            <div class="person_name">
+                <p>{{ member.name }} &nbsp; &nbsp; ( {{member.line}} )</p>
+            </div>  
+        </div>
+        {% endfor %}
+        {% if c4 ==0 %}
+        <h1>おらんよ</h1>
+        {% endif %}
+    </div>
+</div>
+
+    <div class="d-grid gap-2 asign">
+        <button type="submit" class ="btn btn-primary choise">参加</button>
+    </div>
+</form>
+
+<div class="d-grid gap-2 asign">
+    <form action="/joiner" method ="GET">
+        <input type="submit" class="btn btn-success choise" value="参加者確認">
+    </form>
+</div>
+
+
+
+
+{% endblock %}

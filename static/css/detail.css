@@ -1,0 +1,104 @@
+
+.grades{
+    display: inline-block;
+    width:25%;
+    height: 500px;
+}
+
+.grades lable{
+    font-size: 10px;
+}
+.box_srcollbar{
+    margin-bottom: 10px;
+}
+.asign{
+    padding:3px 1px;
+}
+.choise{
+    width: 100%;
+}
+.choices{
+    padding-bottom: 5px;
+}
+.person{
+    width: 100%;
+    display: inline-block;
+    border-bottom: 0.5px dashed #272323;
+    height: 35px;
+}
+.person_check{
+    float:left;
+    margin-right:10px;
+}
+.person_check input[type = checkbox]{
+    vertical-align: middle;
+    height: 20px;
+    width: 20px;
+}
+.person_name{
+    float:left
+}
+.members{
+    margin-bottom: 30px;
+    height: auto;
+}
+.box_srcollbar {
+    overflow:auto;
+    height: 470px;
+    padding:10px;
+    width:100%;
+    border:1px solid #000;
+    background-color:#F9F9F9;
+    color:#000;
+    font-size:18px;
+}
+.box_title{
+    border:1px solid #000;
+    padding:5px;
+    font-weight:bold;
+    font-size:14px;
+    color:#000;
+}
+.search{
+    width: 30%;
+    font-size: 18px;
+    float: left;
+}
+.lookfor{
+    width: 100%;
+    height: 80px;
+    display: inline-block;
+    font-size: 0px;
+    margin: 10px 0px;
+}
+.result{
+    float: left;
+    font-size: 15px;
+    height: 80px;
+    overflow:auto;
+    padding:10px;
+    width:70%;
+    border:1px solid #000;
+    background-color:#F9F9F9;
+    color:#000;
+    font-size:18px;
+}
+.found-people{
+    float: left;
+    height: 35px;
+    width:25%;
+    padding: 2px;
+    border: 1px solid #000;
+}
+.fperson_name{
+    text-align: center;
+    font-size: 15px;
+}
+.re-result{
+    width: 100%;
+    display: inline-block;
+}
+
+.found-people input[type = checkbox]{
+    padding-bottom: 2px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css' )}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}">
+    <title>チーム分けするやつ</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+  <div class ="head">
+    <script src="{{url_for('static', filename='jquery-3.6.1.min.js')}}")></script>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+    <nav class="navbar bg-body-secondary fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">なんかグループ分けるやつ</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="ナビゲーションの切替">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">メニュー</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="閉じる"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">ホーム</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/seehis">過去のグループを見る</a>
+              </li>
+            </ul>
+            <form action="/judge" method="POST">
+              <label for="password">メンバー管理</label>
+              <input type="password" name = "password">
+              <input type="submit" class ="btn btn-success" value="認証">
+           </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+    {% block body %}{% endblock %}
+</body>
+</html>

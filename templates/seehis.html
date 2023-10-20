@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/group.css')}}">
+{% endblock %}
+{% block body %}
+<div class="forget">
+    <form action="/forget",method="GET">
+        <button type="submit" class="forg">過去を振り返らない</button>
+    </form>
+</div>
+<div class="allg all-group">
+    {% for i in range(num) %}
+    <div class="grades ">
+        <div class="box_title gr">あるグループ{{i}}</div>
+        <div class="box_srcollbar see_g">
+            {% for members in his[i] %}
+            <p class="people">{{ members }}</p>
+            {% endfor%}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %} 

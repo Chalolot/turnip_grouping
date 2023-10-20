@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/add.css')}}">
+{% endblock %}
+{% block body %}
+<h2>編集</h2>
+<div class="form">
+    <form action="/update/{{ member.id }}" method="POST">
+        <p>
+            <label for="name">名前</label>
+            <input type="text" name ="name" value="{{ member.name }}" >
+            <label for="read">なまえ</label>
+            <input type="text" name ="read" value="{{ member.read }}" pattern="[\u3041-\u3096]*" >
+            <label for="line">LINEの名前</label>
+            <input type="text" name="line" value="{{member.line}}" required>
+        </p>
+        <p>
+            <label for="grade">学年</label>
+            <input type="number" min="1" max="4" name ="grade" value="{{ member.grade }}" required>
+        </p>
+
+        <p>
+            <label for="sex">性別</label>
+            <input type="radio" name = "sex" value="M" {% if member.sex == "M" %}checked{% endif %}>
+            <label for="sex">M(男)</label>
+            <input type="radio" name = "sex" value="F" {% if member.sex != "M" %}checked{% endif %} >  
+            <label for="sex">F(女)</label>  
+        </p>
+        <button type="submit">変更する</button>
+    </form>
+</div>
+
+{% endblock %}

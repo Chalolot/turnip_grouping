@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/group.css')}}">
+{% endblock %}
+{% block body %}
+<h1>組み分け結果(参加人数：{{ ca }})</h1>
+<div class="forms">
+    <form action="/grouping" method = "POST">
+        <input type="number" min="1" class="num" name="group_num" value="{{ count_m }}">
+        <input type="submit" name="way" class="btn btn-primary" value="再編成する">
+    </form>
+</div>
+
+<div class="allg">
+    {% for i in range(group_num) %}
+    <div class="grades">
+        <div class="box_title">
+            <p class="gr">グループ {{i+1}}</p>
+            <div class="sex">
+                <p class="female">F　=　{{s_jmembers[i].count('F')}}</p>
+                <p class="male">M　=　{{s_jmembers[i].count('M')}}</p>
+            </div>
+        </div>
+        <div class="box_srcollbar n-g">
+            {% for member in jmembers[i] %}
+            <div class="names">
+                <form action="/replace" method="POST">
+                    <button type="submit" name ="place" class="botan {% if exchange[i][jmembers[i].index(member)] ==1 %} checked {% elif g_jmembers[i][jmembers[i].index(member)] == 1 %} first 
+                    {% elif g_jmembers[i][jmembers[i].index(member)] == 2 %} seond {% elif g_jmembers[i][jmembers[i].index(member)] == 3 %} third {% else %} fourth {% endif %} " value="{{ member }}">
+                        <p class="name">{{l_jmembers[i][jmembers[i].index(member)]}}　({{(member)}})</p>   
+                        
+                    </button>
+                </form>
+                <p class="psex {% if s_jmembers[i][jmembers[i].index(member)] =='F' %} girl {% else %} boy {% endif %} "></p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<form action="/complete" method = "POST" >
+    <input type="submit" class="btn btn-success" value="名前がわからないのでLINE表記でお願いしますぅぅぅぅ。">
+</form>
+
+
+{% endblock %}

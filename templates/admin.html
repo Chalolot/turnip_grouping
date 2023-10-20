@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/admin.css' )}}">
+{% endblock %}
+
+
+
+{% block body %}
+<h1>メンバー管理</h1>
+<a href="/create" type="button" class="add">メンバー追加</a>
+
+<div class ="members">
+    <div class ="grades g-1">
+        <div class ="box_title t-1">1年生</div>
+        <div class ="box_srcollbar">
+            {% for member in members1 %}
+            <div class ="member">
+                <h2>{{ member.name }}　({{member.line}})</h2>
+                <a href="/delete/{{ member.id }}" class="btn btn-d" role="button">退会</a>
+                <a href="/update/{{ member.id }}" class="btn btn-s" role="button">メンバー情報の編集</a>
+            </div>
+            {% endfor %}
+            {% if c1 == 0 %}    
+            <h1>おらへんの？</h1>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class = "grades g-2">
+        <div class ="box_title t-2">2年生</div>
+        <div class ="box_srcollbar">
+            {% for member in members2 %}
+            <div class ="member">
+                <div class="name">
+                    <h2>{{ member.name }}　({{member.line}})</h2>
+                    <p></p>
+                </div>
+                <a href="/delete/{{ member.id }}" class="btn btn-d" role="button">退会</a>
+                <a href="/update/{{ member.id }}" class="btn btn-s" role="button">メンバー情報の編集</a>
+            </div>
+            {% endfor %}
+            {% if c2 == 0 %}
+            <h1>おらへんの？</h1>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class ="grades g-3">
+        <div class ="box_title t-3">3年生</div>
+        <div class ="box_srcollbar">
+            {% for member in members3 %}
+            <div class ="member">
+                <h2>{{ member.name }}　({{member.line}})</h2>
+                <a href="/delete/{{ member.id }}" class="btn btn-d" role="button">退会</a>
+                <a href="/update/{{ member.id }}" class="btn btn-s" role="button">メンバー情報の編集</a>
+            </div>
+            {% endfor %}
+            {% if c3 == 0 %}
+            <h1>おらへんの？</h1>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class ="grades g-4">
+        <div class ="box_title t-4">4年生</div>
+        <div class ="box_srcollbar">
+            {% for member in members4 %}
+            <div class ="member">
+                <h2>{{ member.name }}　({{member.line}})</h2> 
+                <a href="/delete/{{ member.id }}" class="btn btn-d" role="button">退会</a>
+                <a href="/update/{{ member.id }}" class="btn btn-s" role="button">メンバー情報の編集</a>
+            </div>
+            {% endfor %}
+            {% if c4 ==0 %}
+            <h1>おらへんの？</h1>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
